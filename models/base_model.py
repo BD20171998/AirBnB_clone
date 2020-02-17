@@ -12,18 +12,22 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         '''Initializes an instance'''
         if len(kwargs) > 0:
-            if 'id' in kwargs:
-                self.id = kwargs['id']
-            if 'created_at' in kwargs:
-                self.created_at = datetime.strptime(
-                    kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
-            if 'updated_at' in kwargs:
-                self.updated_at = datetime.strptime(
-                    kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
-            if 'my_number' in kwargs:
-                self.my_number = kwargs['my_number']
-            if 'name' in kwargs:
-                self.name = kwargs['name']
+            for k in kwargs.keys():
+
+                if k == '__class__':
+                    continue
+
+                if k == 'created_at':
+                    self.__dict__[k] = datetime.strptime(
+                        kwargs['created_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    continue
+
+                if k == 'updated_at':
+                    self.__dict__[k] = datetime.strptime(
+                        kwargs['updated_at'], '%Y-%m-%dT%H:%M:%S.%f')
+                    continue
+
+                self.__dict__[k] = kwargs[k]
 
         else:
             self.id = str(uuid.uuid4())

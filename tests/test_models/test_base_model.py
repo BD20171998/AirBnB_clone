@@ -66,10 +66,9 @@ class TestBase(unittest.TestCase):
         b1.lname = "Smith"
         b1_json = b1.to_dict()
 
-        b2=BaseModel(**b1_json)
-        b2_json=b2.to_dict()
+        b2 = BaseModel(**b1_json)
 
-        self.assertEqual(b1_json, b2_json)
+        self.assertEqual(b1.__dict__, b2.__dict__)
 
     def test_create_from_dict2(self):
         b1 = BaseModel()
