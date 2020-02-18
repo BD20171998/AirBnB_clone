@@ -16,4 +16,4 @@ class User(BaseModel):
 
     def __init__(self, *args, **kwargs):
         '''Initializes an instance'''
-        super().__init__(*args, **kwargs): w
+        super().__init__(*args, **kwargs)
