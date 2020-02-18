@@ -2,12 +2,13 @@
 '''
 The File Storage Module
 '''
-
+from models.base_model import BaseModel
 import json
+
 class FileStorage:
     '''A FileStorage Module'''
 
-    __file_path = "kev.json"
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
@@ -15,26 +16,28 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        '''sets in __objects the obj with key <obj class name>.id'''
-        key = self.__class__.__name__ + '.' + self.id
-        __objects[key] = obj
+        '''sets in __objects the obj with file <obj class name>.id'''
+        key = obj.__class__.__name__ + '.' + obj.id
+        self.__objects[key] = obj
 
     def save(self):
         '''serializes __objects to the JSON file'''
-        n_dict = __objects.copy()
-        dict_str = json.dumps(n_dict)
+        new_dict = {}
 
-        with open(self.__file_path, mode='a+', encoding='utf-8') as a_file:
-            a_file.write(dict_str)
+        for k, v in self.__objects.items():
 
-        print('WROTEEEEEEEEEEEE TO FILEEEEEEEEEEEEEEEEEEEEE')
+            new_dict[k] = self.__objects[k].to_dict()
+
+        with open(self.__file_path, mode='w', encoding='utf-8') as a_file:
+            json.dump(new_dict, a_file)
+
     def reload(self):
         '''deserializes the JSON file to __objects'''
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as a_file:
-                str_objs = a_file.read()
+                str_objs = json.load(a_file)
 
-            __objects = JSON.loads(str_objs)
+                for key, val in str_objs.items():
+                    self.__objects[key] = BaseModel(**val)
         except:
-            print('NO FILEEEEEEEEEEEEE@!')
             pass
