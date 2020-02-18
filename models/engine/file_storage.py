@@ -3,6 +3,7 @@
 The File Storage Module
 '''
 from models.base_model import BaseModel
+from models.user import User
 import json
 
 class FileStorage:
@@ -38,6 +39,7 @@ class FileStorage:
                 str_objs = json.load(a_file)
 
                 for key, val in str_objs.items():
-                    self.__objects[key] = BaseModel(**val)
+                    cls_name = val['__class__']
+                    self.__objects[key] = eval(cls_name)(**val)
         except:
             pass
