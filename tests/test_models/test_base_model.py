@@ -107,3 +107,10 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.name, b2.name)
         self.assertEqual(b1.my_number, b2.my_number)
         self.assertEqual(b1.lname, b2.lname)
+
+    def test_str(self):
+        b1 = BaseModel()
+        b1.lname = "Smith"
+
+        teststr = "[BaseModel] ({}) {}".format(b1.id, b1.__dict__)
+        self.assertEqual(teststr, str(b1))
