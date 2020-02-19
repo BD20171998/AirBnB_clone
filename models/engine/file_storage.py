@@ -11,6 +11,7 @@ from models.city import City
 from models.review import Review
 import json
 
+
 class FileStorage:
     '''A FileStorage Module'''
 
