@@ -7,6 +7,21 @@ class HBNBCommand(cmd.Cmd):
     """Class for hbnd interpreter"""
     prompt = '(hbnb) '
 
+    def do_all(self, arg):
+        """
+        Prints all string representation of all instances based or not on the
+        class name
+        """
+        args = shlex.split(arg)
+        valid_classes = ['BaseModel', 'User', 'State', 'City', 'Amenity',
+                         'Place', 'Review']
+
+        if len(args) < 1:
+            for key in storage.all():
+                obj = storage.all()[key]
+                print(obj)
+
+
     def do_quit(self):
         """Command to quit"""
         return True
@@ -140,7 +155,7 @@ class HBNBCommand(cmd.Cmd):
 
         json_dict_update.save()
 
-    def do_emptyline(self):
+    def emptyline(self):
         """skips line when command is empty"""
         pass
 
