@@ -1,7 +1,11 @@
 #!/usr/bin/python3
-import cmd, sys, json, shlex
+import cmd
+import json
+import shlex
+import sys
 from models import storage
 from models.base_model import BaseModel
+
 
 class HBNBCommand(cmd.Cmd):
     """Class for hbnd interpreter"""
@@ -20,7 +24,6 @@ class HBNBCommand(cmd.Cmd):
             for key in storage.all():
                 obj = storage.all()[key]
                 print(obj)
-
 
     def do_quit(self, arg):
         """Command to quit"""
@@ -69,7 +72,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
 
-        show_obj =  args[0]+"."+args[1]
+        show_obj = args[0]+"."+args[1]
 
         try:
             del storage.all()[show_obj]
@@ -100,7 +103,7 @@ class HBNBCommand(cmd.Cmd):
 
         all_objs = storage.all()
 
-        show_obj =  args[0]+"."+args[1]
+        show_obj = args[0]+"."+args[1]
 
         try:
             print(all_objs[show_obj])
@@ -111,8 +114,8 @@ class HBNBCommand(cmd.Cmd):
 
     def do_update(self, arg):
         """
-        Updates an instance based on the class name and id by adding or updating
-        attribute (save the change into the JSON file)
+        Updates an instance based on the class name and id by adding or
+        updating attribute (save the change into the JSON file)
         """
         args = shlex.split(arg)
         valid_classes = ['BaseModel', 'User', 'State', 'City', 'Amenity',
@@ -132,7 +135,7 @@ class HBNBCommand(cmd.Cmd):
 
         all_objs = storage.all()
 
-        show_obj =  args[0]+"."+args[1]
+        show_obj = args[0]+"."+args[1]
 
         try:
             json_dict_update = all_objs[show_obj]
@@ -147,7 +150,7 @@ class HBNBCommand(cmd.Cmd):
             print("** attribute name missing **")
             return
 
-        if len(args) == 3 or args[3] == None:
+        if len(args) == 3 or args[3] is None:
             print("** value missing **")
             return
 
