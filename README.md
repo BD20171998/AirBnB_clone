@@ -24,31 +24,38 @@ Do you remember the Shell? It’s exactly the same but limited to a specific use
 To start the command interpreter, you go to the project's directory and run the command:
 
     ./console.py
+
 ![Startup](https://media.giphy.com/media/LrElgtYRDClP8R4zLr/giphy.gif)
+
 #### How to use it & Examples:
 ##### Create
 Creates a new instance and saves it (to the JSON file) and prints the `id`:
 Example: `$ create BaseModel`
+
 ![Create](https://media.giphy.com/media/THBlFwC4wP1xqKR6eV/giphy.gif)
 
 ##### Show
 Prints the string representation of an instance based on the class name and `id`:
 Example: `$ show BaseModel 1234-1234-1234`
+
 ![Show](https://media.giphy.com/media/kDecIPbRobmkKQHbed/giphy.gif)
 
 ##### Destroy
 Deletes an instance based on the class name and `id` (save the change into the JSON file):
 Example: `$ destroy BaseModel 1234-1234-1234`
+
 ![Destroy](https://media.giphy.com/media/lNX5Ifd3dOSaxa6ecQ/giphy.gif)
 
 ##### All
 Prints all string representation of all instances based or not on the class name:
 Example: `$ all BaseModel` or `$ all`
+
 ![All](https://media.giphy.com/media/ftZFODLVcGD7R90r01/giphy.gif)
 
 ##### Update
 Updates an instance based on the class name and `id` by adding or updating attribute (save the change into the JSON file):
 Example: `$ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"`
+
 ![Update 1](https://media.giphy.com/media/TiDaXq1xhvozepaXoA/giphy.gif)
 
 After adding or updating attribute it shows:
