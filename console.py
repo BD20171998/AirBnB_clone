@@ -194,11 +194,11 @@ class HBNBCommand(cmd.Cmd):
 
         attribs = json_dict_update.__dict__.keys()
 
-        if len(args) < 3 or args[2] not in attribs:
+        if len(args) < 3:
             print("** attribute name missing **")
             return
 
-        if len(args) == 3 or args[3] == None:
+        if len(args) == 3:
             print("** value missing **")
             return
 
