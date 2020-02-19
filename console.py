@@ -6,7 +6,6 @@ from models.base_model import BaseModel
 class HBNBCommand(cmd.Cmd):
     """Class for hbnd interpreter"""
     prompt = '(hbnb)'
-    file = None
 
     def do_quit(self):
         """Command to quit"""
@@ -29,6 +28,37 @@ class HBNBCommand(cmd.Cmd):
         inst = BaseModel()
         inst.save()
         print(inst.id)
+
+    def do_destroy(self, arg):
+        """
+        Deletes an instance based on the class name and id, saves the change
+        into the JSON file)
+        """
+        args = shlex.split(arg)
+        valid_classes = ['BaseModel', 'User', 'State', 'City', 'Amenity',
+                         'Place', 'Review']
+
+        if len(args) < 1:
+            print("** class name missing **")
+            return
+
+        if args[0] not in valid_classes:
+            print("** class doesn't exist **")
+            return
+
+        if args[0] in valid_classes and len(args) < 2:
+            print("** instance id missing **")
+            return
+
+        show_obj =  args[0]+"."+args[1]
+
+        try:
+            del storage.all()[show_obj]
+            storage.save()
+
+        except:
+            print("** no instance found **")
+            return
 
     def do_show(self, arg):
         """
