@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 class HBNBCommand(cmd.Cmd):
     """Class for hbnd interpreter"""
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
 
     def do_quit(self):
         """Command to quit"""
@@ -17,11 +17,15 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it to the JSON file"""
-        if len(arg) < 1:
+        args = shlex.split(arg)
+        valid_classes = ['BaseModel', 'User', 'State', 'City', 'Amenity',
+                         'Place', 'Review']
+
+        if len(args) < 1:
             print("** class name missing **")
             return
 
-        if arg != "BaseModel":
+        if args[0] not in valid_classes:
             print("** class doesn't exist **")
             return
 
@@ -136,6 +140,9 @@ class HBNBCommand(cmd.Cmd):
 
         json_dict_update.save()
 
+    def do_emptyline(self):
+        """skips line when command is empty"""
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
