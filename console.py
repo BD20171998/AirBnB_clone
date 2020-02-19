@@ -22,7 +22,7 @@ class HBNBCommand(cmd.Cmd):
                 print(obj)
 
 
-    def do_quit(self):
+    def do_quit(self, arg):
         """Command to quit"""
         return True
 
