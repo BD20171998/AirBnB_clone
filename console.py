@@ -2,6 +2,13 @@
 import cmd, sys, json, shlex
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+
 
 class HBNBCommand(cmd.Cmd):
     """Class for hbnd interpreter"""
@@ -12,15 +19,26 @@ class HBNBCommand(cmd.Cmd):
         Prints all string representation of all instances based or not on the
         class name
         """
-        args = shlex.split(arg)
+        args = arg.split(' ')
         valid_classes = ['BaseModel', 'User', 'State', 'City', 'Amenity',
                          'Place', 'Review']
 
-        if len(args) < 1:
+        if len(arg) == 0:
             for key in storage.all():
                 obj = storage.all()[key]
                 print(obj)
+            return
 
+        if args[0] not in valid_classes:
+            print("** class doesn't exist **")
+            return
+
+        else:
+             for key in storage.all():
+                obj = storage.all()[key]
+                if obj.__class__.__name__ == args[0]:
+                    print(obj)
+             return
 
     def do_quit(self, arg):
         """Command to quit"""
@@ -44,9 +62,40 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        inst = BaseModel()
-        inst.save()
-        print(inst.id)
+        if args[0] == "BaseModel":
+            inst = BaseModel()
+            inst.save()
+            print(inst.id)
+
+        if args[0] == "User":
+            inst = User()
+            inst.save()
+            print(inst.id)
+
+        if args[0] == "State":
+            inst = State()
+            inst.save()
+            print(inst.id)
+
+        if args[0] == "City":
+            inst = City()
+            inst.save()
+            print(inst.id)
+
+        if args[0] == "Amenity":
+            inst = Amenity()
+            inst.save()
+            print(inst.id)
+
+        if args[0] == "Review":
+            inst = Review()
+            inst.save()
+            print(inst.id)
+
+        if args[0] == "Place":
+            inst = Place()
+            inst.save()
+            print(inst.id)
 
     def do_destroy(self, arg):
         """
@@ -84,17 +133,19 @@ class HBNBCommand(cmd.Cmd):
         Prints the string representation of an instance based on the class name
         and id
         """
-        args = arg.split()
+        args = shlex.split(arg)
+        valid_classes = ['BaseModel', 'User', 'State', 'City', 'Amenity',
+                         'Place', 'Review']
 
         if len(args) < 1:
             print("** class name missing **")
             return
 
-        if args[0] != "BaseModel":
+        if args[0] not in valid_classes:
             print("** class doesn't exist **")
             return
 
-        if args[0] == "BaseModel" and len(args) < 2:
+        if args[0] in valid_classes and len(args) < 2:
             print("** instance id missing **")
             return
 
