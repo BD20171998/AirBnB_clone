@@ -42,3 +42,18 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.latitude, 0.0)
         self.assertEqual(b1.longitude, 0.0)
         self.assertEqual(b1.amenity_ids, [])
+
+    def test_place_default(self):
+        b1 = Place()
+
+        self.assertEqual(type(b1.city_id), str)
+        self.assertEqual(type(b1.user_id), str)
+        self.assertEqual(type(b1.name), str)
+        self.assertEqual(type(b1.description), str)
+        self.assertEqual(type(b1.number_rooms), int)
+        self.assertEqual(type(b1.number_bathrooms), int)
+        self.assertEqual(type(b1.max_guest), int)
+        self.assertEqual(type(b1.price_by_night), int)
+        self.assertEqual(type(b1.latitude), float)
+        self.assertEqual(type(b1.longitude), float)
+        self.assertEqual(type(b1.amenity_ids), list)

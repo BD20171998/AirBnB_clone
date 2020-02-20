@@ -28,7 +28,7 @@ class TestBase(unittest.TestCase):
         self.assertIsNotNone(b1.id)
         self.assertIsNotNone(b2.id)
 
-    def test_user(self):
+    def test_user_default(self):
         my_user = User()
         my_user.first_name = "Betty"
         my_user.last_name = "Holberton"
@@ -39,3 +39,16 @@ class TestBase(unittest.TestCase):
         self.assertEqual(my_user.last_name, "Holberton")
         self.assertEqual(my_user.email, "airbnb@holbertonshool.com")
         self.assertEqual(my_user.password, "root")
+
+    def test_user_types(self):
+
+        my_user = User()
+        my_user.first_name = "Betty"
+        my_user.last_name = "Holberton"
+        my_user.email = "airbnb@holbertonshool.com"
+        my_user.password = "root"
+
+        self.assertEqual(type(my_user.first_name), str)
+        self.assertEqual(type(my_user.last_name), str)
+        self.assertEqual(type(my_user.email), str)
+        self.assertEqual(type(my_user.password), str)
