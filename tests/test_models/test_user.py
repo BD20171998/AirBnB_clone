@@ -24,26 +24,28 @@ class TestBase(unittest.TestCase):
         self.assertIsNotNone(self.b2.id)
 
     def test_user_attr(self):
-        self.b2.first_name = "Betty"
-        self.b2.last_name = "Holberton"
-        self.b2.email = "airbnb@holbertonshool.com"
-        self.b2.password = "root"
+        self.b4 = User()
+        self.b4.first_name = "Betty"
+        self.b4.last_name = "Holberton"
+        self.b4.email = "airbnb@holbertonshool.com"
+        self.b4.password = "root"
 
-        self.assertEqual(self.b2.first_name, "Betty")
-        self.assertEqual(self.b2.last_name, "Holberton")
-        self.assertEqual(self.b2.email, "airbnb@holbertonshool.com")
-        self.assertEqual(self.b2.password, "root")
+        self.assertEqual(self.b4.first_name, "Betty")
+        self.assertEqual(self.b4.last_name, "Holberton")
+        self.assertEqual(self.b4.email, "airbnb@holbertonshool.com")
+        self.assertEqual(self.b4.password, "root")
 
     def test_user_types(self):
-        self.b2.first_name = "Betty"
-        self.b2.last_name = "Holberton"
-        self.b2.email = "airbnb@holbertonshool.com"
-        self.b2.password = "root"
+        self.b3 = User()
+        self.b3.first_name = "Betty"
+        self.b3.last_name = "Holberton"
+        self.b3.email = "airbnb@holbertonshool.com"
+        self.b3.password = "root"
 
-        self.assertEqual(type(self.b2.first_name), str)
-        self.assertEqual(type(self.b2.last_name), str)
-        self.assertEqual(type(self.b2.email), str)
-        self.assertEqual(type(self.b2.password), str)
+        self.assertEqual(type(self.b3.first_name), str)
+        self.assertEqual(type(self.b3.last_name), str)
+        self.assertEqual(type(self.b3.email), str)
+        self.assertEqual(type(self.b3.password), str)
 
     def test_str(self):
         self.b2.first_name = "Roger"
