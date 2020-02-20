@@ -13,7 +13,6 @@ from models.place import Place
 from models.review import Review
 
 
-
 class HBNBCommand(cmd.Cmd):
     """Class for hbnd interpreter"""
     prompt = '(hbnb) '
@@ -38,11 +37,11 @@ class HBNBCommand(cmd.Cmd):
             return
 
         else:
-             for key in storage.all():
+            for key in storage.all():
                 obj = storage.all()[key]
                 if obj.__class__.__name__ == args[0]:
                     print(obj)
-             return
+            return
 
     def do_quit(self, arg):
         """Command to quit"""
@@ -213,6 +212,80 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """skips line when command is empty"""
         pass
+
+    def count_inst(self, arg):
+        '''Counts the instances of a class'''
+        count = 0
+
+        for key in storage.all():
+                obj = storage.all()[key]
+                if obj.__class__.__name__ == arg:
+                    count += 1
+
+        return count
+
+    def do_BaseModel(self, arg):
+        '''Do BaseModel'''
+
+        if arg == '.all()':
+            self.do_all('BaseModel')
+
+        if arg == '.count()':
+            print(self.count_inst('BaseModel'))
+
+    def do_User(self, arg):
+        '''Do User'''
+
+        if arg == '.all()':
+            self.do_all('User')
+
+        if arg == '.count()':
+            print(self.count_inst('User'))
+
+    def do_State(self, arg):
+        '''Do State'''
+
+        if arg == '.all()':
+            self.do_all('State')
+
+        if arg == '.count()':
+            print(self.count_inst('State'))
+
+    def do_City(self, arg):
+        '''Do City'''
+
+        if arg == '.all()':
+            self.do_all('City')
+
+        if arg == '.count()':
+            print(self.count_inst('City'))
+
+    def do_Amenity(self, arg):
+        '''Do Amenity'''
+
+        if arg == '.all()':
+            self.do_all('Amenity')
+
+        if arg == '.count()':
+            print(self.count_inst('Amenity'))
+
+    def do_Place(self, arg):
+        '''Do Place'''
+
+        if arg == '.all()':
+            self.do_all('Place')
+
+        if arg == '.count()':
+            print(self.count_inst('Place'))
+
+    def do_Review(self, arg):
+        '''Do Review'''
+
+        if arg == '.all()':
+            self.do_all('Review')
+
+        if arg == '.count()':
+            print(self.count_inst('Review'))
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
