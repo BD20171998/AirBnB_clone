@@ -233,7 +233,7 @@ class HBNBCommand(cmd.Cmd):
         if arg == '.count()':
             print(self.count_inst('BaseModel'))
 
-        if arg.startswith('.show(') == True:
+        if arg.startswith('.show(') is True:
             idx1 = arg.index('"') + 1
             str_p1 = arg[idx1:]
             idx2 = str_p1.index('"')
@@ -241,6 +241,13 @@ class HBNBCommand(cmd.Cmd):
 
             self.do_show("BaseModel {}".format(extracted_id))
 
+        if arg.startswith('.destroy(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            self.do_destroy("BaseModel {}".format(extracted_id))
 
     def do_User(self, arg):
         '''Do User'''
@@ -251,13 +258,21 @@ class HBNBCommand(cmd.Cmd):
         if arg == '.count()':
             print(self.count_inst('User'))
 
-        if arg.startswith('.show(') == True:
+        if arg.startswith('.show(') is True:
             idx1 = arg.index('"') + 1
             str_p1 = arg[idx1:]
             idx2 = str_p1.index('"')
             extracted_id = str_p1[:idx2]
 
             self.do_show("User {}".format(extracted_id))
+
+        if arg.startswith('.destroy(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            self.do_destroy("User {}".format(extracted_id))
 
     def do_State(self, arg):
         '''Do State'''
@@ -268,13 +283,21 @@ class HBNBCommand(cmd.Cmd):
         if arg == '.count()':
             print(self.count_inst('State'))
 
-        if arg.startswith('.show(') == True:
+        if arg.startswith('.show(') is True:
             idx1 = arg.index('"') + 1
             str_p1 = arg[idx1:]
             idx2 = str_p1.index('"')
             extracted_id = str_p1[:idx2]
 
             self.do_show("State {}".format(extracted_id))
+
+        if arg.startswith('.destroy(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            self.do_destroy("State {}".format(extracted_id))
 
     def do_City(self, arg):
         '''Do City'''
@@ -285,13 +308,21 @@ class HBNBCommand(cmd.Cmd):
         if arg == '.count()':
             print(self.count_inst('City'))
 
-        if arg.startswith('.show(') == True:
+        if arg.startswith('.show(') is True:
             idx1 = arg.index('"') + 1
             str_p1 = arg[idx1:]
             idx2 = str_p1.index('"')
             extracted_id = str_p1[:idx2]
 
             self.do_show("City {}".format(extracted_id))
+
+        if arg.startswith('.destroy(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            self.do_destroy("City {}".format(extracted_id))
 
     def do_Amenity(self, arg):
         '''Do Amenity'''
@@ -302,13 +333,21 @@ class HBNBCommand(cmd.Cmd):
         if arg == '.count()':
             print(self.count_inst('Amenity'))
 
-        if arg.startswith('.show(') == True:
+        if arg.startswith('.show(') is True:
             idx1 = arg.index('"') + 1
             str_p1 = arg[idx1:]
             idx2 = str_p1.index('"')
             extracted_id = str_p1[:idx2]
 
             self.do_show("Amenity {}".format(extracted_id))
+
+        if arg.startswith('.destroy(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            self.do_destroy("Amenity {}".format(extracted_id))
 
     def do_Place(self, arg):
         '''Do Place'''
@@ -319,13 +358,21 @@ class HBNBCommand(cmd.Cmd):
         if arg == '.count()':
             print(self.count_inst('Place'))
 
-        if arg.startswith('.show(') == True:
+        if arg.startswith('.show(') is True:
             idx1 = arg.index('"') + 1
             str_p1 = arg[idx1:]
             idx2 = str_p1.index('"')
             extracted_id = str_p1[:idx2]
 
             self.do_show("Place {}".format(extracted_id))
+
+        if arg.startswith('.destroy(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            self.do_destroy("Place {}".format(extracted_id))
 
     def do_Review(self, arg):
         '''Do Review'''
@@ -336,13 +383,21 @@ class HBNBCommand(cmd.Cmd):
         if arg == '.count()':
             print(self.count_inst('Review'))
 
-        if arg.startswith('.show(') == True:
+        if arg.startswith('.show(') is True:
             idx1 = arg.index('"') + 1
             str_p1 = arg[idx1:]
             idx2 = str_p1.index('"')
             extracted_id = str_p1[:idx2]
 
             self.do_show("Review {}".format(extracted_id))
+
+        if arg.startswith('.destroy(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            self.do_destroy("Review {}".format(extracted_id))
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
