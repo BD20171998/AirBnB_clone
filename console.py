@@ -249,6 +249,28 @@ class HBNBCommand(cmd.Cmd):
 
             self.do_destroy("BaseModel {}".format(extracted_id))
 
+        if arg.startswith('.update(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            key = str_p1[:idx1]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            val = str_p1[:idx1]
+
+            self.do_update("BaseModel {} {} {}".format(extracted_id, key, val))
+
     def do_User(self, arg):
         '''Do User'''
 
@@ -273,6 +295,28 @@ class HBNBCommand(cmd.Cmd):
             extracted_id = str_p1[:idx2]
 
             self.do_destroy("User {}".format(extracted_id))
+
+        if arg.startswith('.update(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            key = str_p1[:idx1]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            val = str_p1[:idx1]
+
+            self.do_update("User {} {} {}".format(extracted_id, key, val))
 
     def do_State(self, arg):
         '''Do State'''
@@ -299,6 +343,28 @@ class HBNBCommand(cmd.Cmd):
 
             self.do_destroy("State {}".format(extracted_id))
 
+        if arg.startswith('.update(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            key = str_p1[:idx1]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            val = str_p1[:idx1]
+
+            self.do_update("State {} {} {}".format(extracted_id, key, val))
+
     def do_City(self, arg):
         '''Do City'''
 
@@ -323,6 +389,28 @@ class HBNBCommand(cmd.Cmd):
             extracted_id = str_p1[:idx2]
 
             self.do_destroy("City {}".format(extracted_id))
+
+        if arg.startswith('.update(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            key = str_p1[:idx1]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            val = str_p1[:idx1]
+
+            self.do_update("City {} {} {}".format(extracted_id, key, val))
 
     def do_Amenity(self, arg):
         '''Do Amenity'''
@@ -349,6 +437,28 @@ class HBNBCommand(cmd.Cmd):
 
             self.do_destroy("Amenity {}".format(extracted_id))
 
+        if arg.startswith('.update(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            key = str_p1[:idx1]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            val = str_p1[:idx1]
+
+            self.do_update("Amenity {} {} {}".format(extracted_id, key, val))
+
     def do_Place(self, arg):
         '''Do Place'''
 
@@ -374,6 +484,28 @@ class HBNBCommand(cmd.Cmd):
 
             self.do_destroy("Place {}".format(extracted_id))
 
+        if arg.startswith('.update(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            key = str_p1[:idx1]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            val = str_p1[:idx1]
+
+            self.do_update("Place {} {} {}".format(extracted_id, key, val))
+
     def do_Review(self, arg):
         '''Do Review'''
 
@@ -398,6 +530,28 @@ class HBNBCommand(cmd.Cmd):
             extracted_id = str_p1[:idx2]
 
             self.do_destroy("Review {}".format(extracted_id))
+
+        if arg.startswith('.update(') is True:
+            idx1 = arg.index('"') + 1
+            str_p1 = arg[idx1:]
+            idx2 = str_p1.index('"')
+            extracted_id = str_p1[:idx2]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            key = str_p1[:idx1]
+
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"') + 1
+            str_p1 = str_p1[idx1:]
+            idx1 = str_p1.index('"')
+            val = str_p1[:idx1]
+
+            self.do_update("Review {} {} {}".format(extracted_id, key, val))
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
