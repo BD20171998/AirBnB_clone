@@ -20,8 +20,8 @@ class TestBase(unittest.TestCase):
         self.assertNotEqual(self.b1.id, self.b2.id)
 
     def test_id_None(self):
-        self.assertIsNotNone(b1.id)
-        self.assertIsNotNone(b2.id)
+        self.assertIsNotNone(self.b1.id)
+        self.assertIsNotNone(self.b2.id)
 
     def test_user_attr(self):
         self.b2.first_name = "Betty"
@@ -41,13 +41,13 @@ class TestBase(unittest.TestCase):
         self.b2.password = "root"
 
         self.assertEqual(type(self.b2.first_name), str)
-        self.assertEqual(type(self.b2..last_name), str)
+        self.assertEqual(type(self.b2.last_name), str)
         self.assertEqual(type(self.b2.email), str)
         self.assertEqual(type(self.b2.password), str)
 
     def test_str(self):
         self.b2.first_name = "Roger"
-        teststr = "[City] ({}) {}".format(self.b2.id, self.b2.__dict__)
+        teststr = "[User] ({}) {}".format(self.b2.id, self.b2.__dict__)
         self.assertEqual(teststr, str(self.b2))
 
     def test_update_format(self):
