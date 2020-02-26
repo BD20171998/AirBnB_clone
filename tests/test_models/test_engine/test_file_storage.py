@@ -84,7 +84,7 @@ class TestBase(unittest.TestCase):
 
         self.assertEqual(dict1, dict2)
 
-    def test_save_base(self):
+    def test_save_base2(self):
         self.b1 = BaseModel()
         self.b2 = BaseModel()
         self.b1.name = "George Washington"
