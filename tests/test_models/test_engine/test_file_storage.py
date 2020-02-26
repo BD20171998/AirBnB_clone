@@ -94,4 +94,4 @@ class TestBase(unittest.TestCase):
         key = "BaseModel" + "." + self.b1.id
         obj = myobj[key]
 
-        self.assertNotEqual(self.b1.to_dict(), obj)
+        self.assertEqual(self.b1.to_dict(), obj.to_dict())
