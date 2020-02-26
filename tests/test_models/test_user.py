@@ -19,22 +19,6 @@ class TestBase(unittest.TestCase):
     def test_id_diff(self):
         self.assertNotEqual(self.b1.id, self.b2.id)
 
-    def test_id_None(self):
-        self.assertIsNotNone(self.b1.id)
-        self.assertIsNotNone(self.b2.id)
-
-    def test_user_attr(self):
-        self.b4 = User()
-        self.b4.first_name = "Betty"
-        self.b4.last_name = "Holberton"
-        self.b4.email = "airbnb@holbertonshool.com"
-        self.b4.password = "root"
-
-        self.assertEqual(self.b4.first_name, "Betty")
-        self.assertEqual(self.b4.last_name, "Holberton")
-        self.assertEqual(self.b4.email, "airbnb@holbertonshool.com")
-        self.assertEqual(self.b4.password, "root")
-
     def test_user_types(self):
         self.b3 = User()
         self.b3.first_name = "Betty"
@@ -46,11 +30,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(type(self.b3.last_name), str)
         self.assertEqual(type(self.b3.email), str)
         self.assertEqual(type(self.b3.password), str)
-
-    def test_str(self):
-        self.b2.first_name = "Roger"
-        teststr = "[User] ({}) {}".format(self.b2.id, self.b2.__dict__)
-        self.assertEqual(teststr, str(self.b2))
 
     def test_update_format(self):
         self.b2.save()
