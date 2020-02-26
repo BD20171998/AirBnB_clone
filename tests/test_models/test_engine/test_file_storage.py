@@ -7,6 +7,7 @@ from io import StringIO
 from datetime import datetime
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+import json
 import os.path
 
 class TestBase(unittest.TestCase):
@@ -60,6 +61,20 @@ class TestBase(unittest.TestCase):
         self.b1 = BaseModel()
         self.b1.save()
         dict1 = self.b1.to_dict()
+
+        with open('file.json', 'r') as f:
+            str_objs = json.load(f)
+
+        key = "BaseModel" + "." + self.b1.id
+        obj = str_objs[key]
+
+        self.assertEqual(dict1, obj)
+
+    def test_reload2(self):
+        self.b1 = BaseModel()
+        self.b1.save()
+        dict1 = self.b1.to_dict()
+        self.storage.reload()
 
         all_objs = self.storage.all()
         key = "BaseModel" + "." + self.b1.id
