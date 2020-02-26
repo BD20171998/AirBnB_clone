@@ -93,5 +93,5 @@ class TestBase(unittest.TestCase):
         myobj = self.storage.all()
         key = "BaseModel" + "." + self.b1.id
         obj = myobj[key]
-        self.b1.save()
-        self.assertNotEqual(self.b1.updated_at, obj.updated_at)
+
+        self.assertNotEqual(self.b1.to_dict(), obj)
