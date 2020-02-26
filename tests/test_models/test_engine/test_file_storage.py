@@ -83,3 +83,15 @@ class TestBase(unittest.TestCase):
         dict2 = obj.to_dict()
 
         self.assertEqual(dict1, dict2)
+
+    def test_save_base(self):
+        self.b1 = BaseModel()
+        self.b1.name = "George Washington"
+        self.b1.my_number = 90
+        self.b1.save()
+        self.storage.reload()
+        myobj = self.storage.all()
+        key = "BaseModel" + "." + self.b1.id
+        obj = myobj[key]
+
+        self.assertEqual(self.b1.id, obj.id)
