@@ -74,6 +74,7 @@ class TestBase(unittest.TestCase):
         self.b1 = BaseModel()
         self.b1.save()
         dict1 = self.b1.to_dict()
+        self.storage.__objects = {}
         self.storage.reload()
 
         all_objs = self.storage.all()
