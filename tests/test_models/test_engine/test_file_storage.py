@@ -86,12 +86,21 @@ class TestBase(unittest.TestCase):
 
     def test_save_base(self):
         self.b1 = BaseModel()
+        self.b2 = BaseModel()
         self.b1.name = "George Washington"
         self.b1.my_number = 90
-        self.b1.save()
-        self.storage.reload()
-        myobj = self.storage.all()
-        key = "BaseModel" + "." + self.b1.id
-        obj = myobj[key]
 
-        self.assertEqual(self.b1.to_dict(), obj.to_dict())
+        self.storage.new(self.b1)
+        self.storage.new(self.b2)
+
+        self.storage.save()
+
+        myobj = self.storage.all()
+
+        mydict = {k:v.to_dict() for k,v in myobj.items()}
+
+        with open("file.json", 'r') as f:
+            myobj2 = f.read()
+            mydict2 = json.loads(myobj2)
+
+        self.assertEqual(mydict2, mydict)
