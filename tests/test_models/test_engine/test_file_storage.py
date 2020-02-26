@@ -40,7 +40,7 @@ class TestBase(unittest.TestCase):
         dict2 = obj.to_dict()
         self.assertEqual(dict1, dict2)
 
-    def test_save(self):
+    def test_save_file(self):
         self.b1 = BaseModel()
         self.b1.name = "George Washington"
         self.b1.my_number = 908
@@ -84,23 +84,20 @@ class TestBase(unittest.TestCase):
 
         self.assertEqual(dict1, dict2)
 
-    def test_save_base2(self):
+    def test_save(self):
         self.b1 = BaseModel()
-        self.b2 = BaseModel()
         self.b1.name = "George Washington"
         self.b1.my_number = 90
+        self.b2 = BaseModel()
 
         self.storage.new(self.b1)
         self.storage.new(self.b2)
 
         self.storage.save()
 
-        myobj = self.storage.all()
+        all_obj = {k:v.to_dict() for k,v in self.storage.all().items()}
 
-        mydict = {k:v.to_dict() for k,v in myobj.items()}
+        with open('file.json', 'r') as f:
+            str_objs = json.loads(f.read())
 
-        with open("file.json", 'r') as f:
-            myobj2 = f.read()
-            mydict2 = json.loads(myobj2)
-
-        self.assertEqual(mydict2, mydict)
+        self.assertEqual(all_obj, str_objs)
