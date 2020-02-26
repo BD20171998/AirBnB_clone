@@ -10,7 +10,7 @@ from models.engine.file_storage import FileStorage
 import json
 import os.path
 
-class TestBase(unittest.TestCase):
+class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
         open('file.json', 'w').close()

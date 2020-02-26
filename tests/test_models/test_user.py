@@ -20,7 +20,7 @@ class TestBase(unittest.TestCase):
         b3 = User()
         b3.first_name = "Betty"
         b3.last_name = "Holberton"
-        b3.email = "airbnb@holbertonshool.com"
+        b3.email = "airbnb@holbertonschool.com"
         b3.password = "root"
 
         self.assertEqual(type(b3.first_name), str)
