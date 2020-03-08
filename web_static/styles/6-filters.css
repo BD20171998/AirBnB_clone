@@ -5,7 +5,7 @@ button {
   height: 48px;
   width: 20%;
   border-radius: 4px;
-  opacity: 90%;
+
   border: 0;
   margin-left: auto;
   margin-right: 30px;
@@ -66,6 +66,7 @@ button {
 .locations:hover .popover,
 .amenities:hover .popover {
   display: inline-block;
+  opacity: 90%;
 }
 
 .locations ul.popover h2 {
